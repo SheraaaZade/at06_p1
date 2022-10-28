@@ -127,12 +127,13 @@ class MoniteurImplTest {
         assertEquals(4,moniteur.nombreDeStages());
     }
 
+    @DisplayName("test 11, ajouter stage non présent")
     @Test
-    void ajouterStage() {
-    }
-
-    @Test
-    void supprimerStage() {
+    void testSupprimerStage5(){
+        amenerAlEtat(4, moniteur);
+        Stage stage = new StageStub(moniteur, 7, sport);
+        assertFalse(moniteur.supprimerStage(stage));
+        assertEquals(4,moniteur.nombreDeStages());
     }
 
     private void amenerAlEtat(int etat, Moniteur moniteur){
